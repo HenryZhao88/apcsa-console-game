@@ -1,4 +1,4 @@
-// Collaborators:
+// Collaborators: Henry Zhao, Carter Kuo
 
 import java.util.Random;
 
@@ -8,7 +8,7 @@ public abstract class Adventurer{
 
 
   /*There is no no-arg constructor. Be careful with your subclass constructors.*/
-  
+
   public Adventurer(String name){
       this(name, 10);
   }
@@ -65,7 +65,7 @@ public abstract class Adventurer{
     this.HP -= amount;
   }
 
-  
+
 
   //toString method
   public String toString(){
