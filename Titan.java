@@ -13,7 +13,7 @@ public class Titan extends Card {
     }
 
     public Titan() {
-        this("Bob");
+        this("Big Man");
     }
 
     @Override
