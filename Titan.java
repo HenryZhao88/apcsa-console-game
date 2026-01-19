@@ -1,4 +1,4 @@
-public class Titan extends Adventurer {
+public class Titan extends Card {
     private int energy;
     private int energyMax;
 
