@@ -1,7 +1,7 @@
 public class Game {
     public static void main(String[] args) {
-        Adventurer player1 = new Titan("Jynxi", 4090);
-        Adventurer enemy = new Titan("Leo", 4090); // Using Titan as enemy for testing
+        Card player1 = new Titan("Jynxi", 4090);
+        Card enemy = new Titan("Leo", 4090); // Using Titan as enemy for testing
 
         System.out.println("Beginning Battle!");
         System.out.println(player1.getName() + " HP: " + player1.getHP() + " Special: " + player1.getSpecial());

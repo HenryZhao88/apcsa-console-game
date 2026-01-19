@@ -41,7 +41,7 @@ public class MyWarrior extends Card {
     }
 
     /*Deal 1-6 damage to opponent, restores 2 caffeine*/
-    public String attack(Adventurer other) {
+    public String attack(Card other) {
         int damage = (int)(Math.random() * 6) + 1;
         other.applyDamage(damage);
         restoreSpecial(2);
@@ -51,7 +51,7 @@ public class MyWarrior extends Card {
     /*Deal 3-12 damage to opponent, only if caffeine is high enough.
       Reduces caffeine by 8.
     */
-    public String specialAttack(Adventurer other) {
+    public String specialAttack(Card other) {
         if (getSpecial() >= 8) {
             setSpecial(getSpecial() - 8);
             int damage = (int)(Math.random() * 5 + Math.random() * 5) + 3;
@@ -65,7 +65,7 @@ public class MyWarrior extends Card {
     }
 
     /*Restores 5 special to other*/
-    public String support(Adventurer other) {
+    public String support(Card other) {
         return "Gives a coffee to " + other + " and restores " +
             other.restoreSpecial(5) + " " + other.getSpecialName();
     }

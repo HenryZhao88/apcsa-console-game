@@ -37,7 +37,7 @@ public class Titan extends Card {
     }
 
     @Override
-    public String attack(Adventurer other) {
+    public String attack(Card other) {
         int damage = 135;
         other.applyDamage(damage);
         restoreSpecial(5); // Regain energy on basic hit
@@ -45,7 +45,7 @@ public class Titan extends Card {
     }
 
     @Override
-    public String specialAttack(Adventurer other) {
+    public String specialAttack(Card other) {
         if (getSpecial() >= 25) {
             setSpecial(getSpecial() - 25);
             int damage = 253;
@@ -57,7 +57,7 @@ public class Titan extends Card {
     }
 
     @Override
-    public String support(Adventurer other) {
+    public String support(Card other) {
         int heal = 50;
         int max = other.getmaxHP();
         if(other.getHP() + heal > max){
