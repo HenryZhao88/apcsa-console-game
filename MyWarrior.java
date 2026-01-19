@@ -1,4 +1,4 @@
-public class MyWarrior extends Adventurer {
+public class MyWarrior extends Card {
     int caffeine, caffeineMax;
     String preferredLanguage;
 
