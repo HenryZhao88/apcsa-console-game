@@ -9,7 +9,7 @@ public abstract class Card {
     /*There is no no-arg constructor. Be careful with your subclass constructors.*/
 
     public Card(String name) {
-        this(name, 10);
+        this(name, 1000);
     }
 
     public Card(String name, int hp) {
