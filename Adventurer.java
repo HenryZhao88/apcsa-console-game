@@ -2,17 +2,17 @@
 
 import java.util.Random;
 
-public abstract class Adventurer {
+public abstract class Card {
     private String name;
     private int HP, maxHP;
 
     /*There is no no-arg constructor. Be careful with your subclass constructors.*/
 
-    public Adventurer(String name) {
+    public Card(String name) {
         this(name, 10);
     }
 
-    public Adventurer(String name, int hp) {
+    public Card(String name, int hp) {
         this.name = name;
         this.HP = hp;
         this.maxHP = hp;
@@ -31,7 +31,7 @@ public abstract class Adventurer {
     //Abstract methods are meant to be implemented in child classes.
 
     /*
-      all adventurers must have a custom special
+      all cards must have a custom special
       consumable resource (mana/rage/money/witts etc)
     */
     //give it a short name (fewer than 13 characters)
@@ -42,20 +42,20 @@ public abstract class Adventurer {
     public abstract int getSpecialMax();
 
     /*
-      all adventurers must have a way to attack enemies and
+      all cards must have a way to attack enemies and
       support their allys
     */
-    //hurt or hinder the target adventurer
-    public abstract String attack(Adventurer other);
+    //hurt or hinder the target card
+    public abstract String attack(Card other);
 
-    //heall or buff the target adventurer
-    public abstract String support(Adventurer other);
+    //heall or buff the target card
+    public abstract String support(Card other);
 
     //heall or buff self
     public abstract String support();
 
-    //hurt or hinder the target adventurer, consume some special resource
-    public abstract String specialAttack(Adventurer other);
+    //hurt or hinder the target card, consume some special resource
+    public abstract String specialAttack(Card other);
 
     /*
       standard methods
