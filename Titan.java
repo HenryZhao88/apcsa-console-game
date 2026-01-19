@@ -1,11 +1,11 @@
 public class Titan extends Card {
-    private int energy;
-    private int energyMax;
+    private int protein;
+    private int proteinMax;
 
     public Titan(String name, int hp) {
         super(name, hp);
-        this.energyMax = 100;
-        this.energy = 50;
+        this.proteinMax = 100;
+        this.protein = 50;
     }
 
     public Titan(String name) {
@@ -18,29 +18,29 @@ public class Titan extends Card {
 
     @Override
     public String getSpecialName() {
-        return "Energy";
+        return "Protein";
     }
 
     @Override
     public int getSpecial() {
-        return energy;
+        return protein;
     }
 
     @Override
     public void setSpecial(int n) {
-        this.energy = n;
+        this.protein = n;
     }
 
     @Override
     public int getSpecialMax() {
-        return energyMax;
+        return proteinMax;
     }
 
     @Override
     public String attack(Card other) {
         int damage = 135;
         other.applyDamage(damage);
-        restoreSpecial(5); // Regain energy on basic hit
+        restoreSpecial(5); // Regain protein on basic hit
         return this.getName() + " uses Toss on " + other.getName() + " dealing " + damage + " damage!";
     }
 
@@ -52,7 +52,7 @@ public class Titan extends Card {
             other.applyDamage(damage);
             return this.getName() + " uses Punch on " + other.getName() + " dealing " + damage + " damage!";
         } else {
-            return "Not enough energy to Punch! Instead " + attack(other);
+            return "Not enough protein to Punch! Instead " + attack(other);
         }
     }
 
@@ -78,6 +78,6 @@ public class Titan extends Card {
             setHP(getHP() + heal);
         }
         restoreSpecial(10);
-        return this.getName() + " heals self for " + heal + " HP and recovers Energy.";
+        return this.getName() + " heals self for " + heal + " HP and recovers Protein.";
     }
 }
