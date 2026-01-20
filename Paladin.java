@@ -71,6 +71,6 @@ public class Paladin extends Card {
     @Override
     public String support() {
         restoreSpecial(40);
-        return this.getName() + " prays, recovering Faith.";
+        return "\u001b[32m" + this.getName() + " prays, recovering Faith.\u001b[0m";
     }
 }

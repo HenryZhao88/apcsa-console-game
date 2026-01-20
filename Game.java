@@ -3,99 +3,100 @@ import java.util.Scanner;
 public class Game {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        System.out.println("Hello! Welcome to Battle Crown! Each player will choose one of three cards: Paladin, Titan, and LP (Lil' P.L.E.K.K.A)! Player 1, choose your card!");
+        System.out.println("Hello! Welcome to Battle Crown! Choose one of three cards: Paladin, Titan, or LP (Lil' P.L.E.K.K.A)!");
         String c1 = input.nextLine();
         while (!(c1.equals("LP") || c1.equals("Titan") || c1.equals("Paladin"))){
             System.out.println("Please select Paladin, Titan, or LP.");
             c1 = input.nextLine();
         }
-        Card player1;
-        if (c1.equals("LP")){player1 = new LP();}
-        else if (c1.equals("Titan")){player1 = new Titan();}
-        else {player1 = new Paladin();}
+        Card player;
+        if (c1.equals("LP")){player = new LP();}
+        else if (c1.equals("Titan")){player = new Titan();}
+        else {player = new Paladin();}
 
-        System.out.println("Alright! Player 1 has selected " + c1 + ". Player 2, choose your card!");
-        String c2 = input.nextLine();
-        while (!(c2.equals("LP") || c2.equals("Titan") || c2.equals("Paladin"))){
-            System.out.println("Please select Paladin, Titan, or LP.");
-            c2 = input.nextLine();
-        }
-        Card player2;
-        if (c2.equals("LP")){player2 = new LP();}
-        else if (c2.equals("Titan")){player2 = new Titan();}
-        else {player2 = new Paladin();}
-
-        System.out.println("\nLet the battle begin!\n");
-        int turn = 1;
-        
-        while (player1.getHP() > 0 && player2.getHP() > 0){
-            Card currentPlayer = (turn == 1) ? player1 : player2;
-            Card opponent = (turn == 1) ? player2 : player1;
-            
-            System.out.println("----------------------------------------");
-            System.out.println("Player " + turn + "'s turn (" + currentPlayer.getName() + ")");
-            System.out.println(currentPlayer.getName() + " - HP: " + currentPlayer.getHP() + "/" + currentPlayer.getmaxHP() + " | " + currentPlayer.getSpecialName() + ": " + currentPlayer.getSpecial() + "/" + currentPlayer.getSpecialMax());
-            System.out.println(opponent.getName() + " - HP: " + opponent.getHP() + "/" + opponent.getmaxHP());
-            System.out.println("----------------------------------------");
-            System.out.println("Choose your action:");
-            System.out.println("1. Attack");
-            System.out.println("2. Special Attack");
-            System.out.println("3. Support Self");
-            System.out.println("4. Support Opponent");
-            
-            String action = input.nextLine();
-            while (!(action.equals("1") || action.equals("2") || action.equals("3") || action.equals("4"))){
-                System.out.println("Invalid choice! Please choose 1, 2, 3, or 4.");
-                action = input.nextLine();
-            }
-            
-            System.out.println();
-            if (action.equals("1")){
-                System.out.println(currentPlayer.attack(opponent));
-            } else if (action.equals("2")){
-                System.out.println(currentPlayer.specialAttack(opponent));
-            } else if (action.equals("3")){
-                System.out.println(currentPlayer.support());
-            } else {
-                System.out.println(currentPlayer.support(opponent));
-            }
-            System.out.println();
-            
-
-            if (turn == 1) {
-                turn = 2;
-            } else {
-                turn = 1;
-            }
-
-        }
-        
-        System.out.println("\n");
-        System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⡀⠀");
-        System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣤⠀⠀⠀⢀⣴⣿⡶⠀⣾⣿⣿⡿⠟⠛⠁");
-        System.out.println("⠀⠀⠀⠀⠀⠀⣀⣀⣄⣀⠀⠀⠀⠀⣶⣶⣦⠀⠀⠀⠀⣼⣿⣿⡇⠀⣠⣿⣿⣿⠇⣸⣿⣿⣧⣤⠀⠀⠀");
-        System.out.println("⠀⠀⢀⣴⣾⣿⡿⠿⠿⠿⠇⠀⠀⣸⣿⣿⣿⡆⠀⠀⢰⣿⣿⣿⣷⣼⣿⣿⣿⡿⢀⣿⣿⡿⠟⠛⠁⠀⠀");
-        System.out.println("⠀⣴⣿⡿⠋⠁⠀⠀⠀⠀⠀⠀⢠⣿⣿⣹⣿⣿⣿⣿⣿⣿⡏⢻⣿⣿⢿⣿⣿⠃⣼⣿⣯⣤⣴⣶⣿⡤⠀");
-        System.out.println("⣼⣿⠏⠀⣀⣠⣤⣶⣾⣷⠄⣰⣿⣿⡿⠿⠻⣿⣯⣸⣿⡿⠀⠀⠀⠁⣾⣿⡏⢠⣿⣿⠿⠛⠋⠉⠀⠀⠀");
-        System.out.println("⣿⣿⠲⢿⣿⣿⣿⣿⡿⠋⢰⣿⣿⠋⠀⠀⠀⢻⣿⣿⣿⠇⠀⠀⠀⠀⠙⠛⠀⠀⠉⠁⠀⠀⠀⠀⠀⠀⠀");
-        System.out.println("⠹⢿⣷⣶⣿⣿⠿⠋⠀⠀⠈⠙⠃⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
-        System.out.println("⠀⠀⠈⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣤⣤⣴⣶⣦⣤⡀⠀");
-        System.out.println("⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⠀⠀⠀⠀⠀⠀⠀⣠⡇⢰⣶⣶⣾⡿⠷⣿⣿⣿⡟⠛⣉⣿⣿⣿⠆");
-        System.out.println("⠀⠀⠀⠀⠀⠀⢀⣤⣶⣿⣿⡎⣿⣿⣦⠀⠀⠀⢀⣤⣾⠟⢀⣿⣿⡟⣁⠀⠀⣸⣿⣿⣤⣾⣿⡿⠛⠁⠀");
-        System.out.println("⠀⠀⠀⠀⣠⣾⣿⡿⠛⠉⢿⣦⠘⣿⣿⡆⠀⢠⣾⣿⠋⠀⣼⣿⣿⣿⠿⠷⢠⣿⣿⣿⠿⢻⣿⣧⠀⠀⠀");
-        System.out.println("⠀⠀⠀⣴⣿⣿⠋⠀⠀⠀⢸⣿⣇⢹⣿⣷⣰⣿⣿⠃⠀⢠⣿⣿⢃⣀⣤⣤⣾⣿⡟⠀⠀⠀⢻⣿⣆⠀⠀");
-        System.out.println("⠀⠀⠀⣿⣿⡇⠀⠀⢀⣴⣿⣿⡟⠀⣿⣿⣿⣿⠃⠀⠀⣾⣿⣿⡿⠿⠛⢛⣿⡟⠀⠀⠀⠀⠀⠻⠿⠀⠀");
-        System.out.println("⠀⠀⠀⠹⣿⣿⣶⣾⣿⣿⣿⠟⠁⠀⠸⢿⣿⠇⠀⠀⠀⠛⠛⠁⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀");
-        System.out.println("⠀⠀⠀⠀⠈⠙⠛⠛⠛⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀");
-
-        if (player1.getHP() <= 0){
-            System.out.println("Player 2 (" + player2.getName() + ") wins!");
+        int random = (int)(Math.random() * 3);
+        Card enemy;
+        String enemyType;
+        if (random == 0){
+            enemy = new LP();
+            enemyType = "LP";
+        } else if (random == 1){
+            enemy = new Titan();
+            enemyType = "Titan";
         } else {
-            System.out.println("Player 1 (" + player1.getName() + ") wins!");
+            enemy = new Paladin();
+            enemyType = "Paladin";
         }
-        System.out.println("\nFinal Stats:");
-        System.out.println("Player 1 - HP: " + player1.getHP());
-        System.out.println("Player 2 - HP: " + player2.getHP());
+
+        System.out.println("\nYou have selected " + c1 + ". Your enemy has chosen " + enemyType + "!");
+        System.out.println("\nLet the battle begin!\n");
+        
+        boolean quit = false;
+        
+        while (player.getHP() > 0 && enemy.getHP() > 0 && !quit){
+            System.out.println("----------------------------------------");
+            System.out.println("Your Turn (" + player.getName() + ")");
+            System.out.println(player.getName() + " - HP: " + player.getHP() + "/" + player.getmaxHP() + " | " + player.getSpecialName() + ": " + player.getSpecial() + "/" + player.getSpecialMax());
+            System.out.println(enemy.getName() + " - HP: " + enemy.getHP() + "/" + enemy.getmaxHP());
+            System.out.println("----------------------------------------");
+            System.out.println("Type: attack / special / support / quit");
+            
+            String action = input.nextLine().toLowerCase();
+            while (!(action.equals("a") || action.equals("attack") || action.equals("sp") || action.equals("special") || action.equals("su") || action.equals("support") || action.equals("quit"))){
+                System.out.println("Invalid choice! Type: attack / special / support / quit");
+                action = input.nextLine().toLowerCase();
+            }
+            
+            if (action.equals("quit")){
+                quit = true;
+                break;
+            }
+            
+            System.out.println();
+            if (action.equals("a") || action.equals("attack")){
+                System.out.println(player.attack(enemy));
+            } else if (action.equals("sp") || action.equals("special")){
+                System.out.println(player.specialAttack(enemy));
+            } else if (action.equals("su") || action.equals("support")){
+                System.out.println(player.support());
+            }
+            System.out.println();
+            
+            if (enemy.getHP() > 0){
+                int computerChoice = (int)(Math.random() * 3);
+                System.out.println("----------------------------------------");
+                System.out.println(enemy.getName() + "'s Turn");
+                System.out.println("----------------------------------------");
+                if (computerChoice == 0){
+                    System.out.println(enemy.attack(player));
+                } else if (computerChoice == 1){
+                    System.out.println(enemy.specialAttack(player));
+                } else {
+                    System.out.println(enemy.support());
+                }
+                System.out.println();
+            }
+        }
+        
+        if (!quit){
+            System.out.println("\n");
+            System.out.println("╔═══╗─────────╔═══╗");
+            System.out.println("║╔═╗║─────────║╔═╗║");
+            System.out.println("║║─╚╬══╦╗╔╦══╗║║─║╠╗╔╦══╦═╗");
+            System.out.println("║║╔═╣╔╗║╚╝║║═╣║║─║║╚╝║║═╣╔╝");
+            System.out.println("║╚╩═║╔╗║║║║║═╣║╚═╝╠╗╔╣║═╣║");
+            System.out.println("╚═══╩╝╚╩╩╩╩══╝╚═══╝╚╝╚══╩╝");
+            System.out.println();
+
+            if (player.getHP() <= 0){
+                System.out.println("You have been defeated! " + enemy.getName() + " wins!");
+            } else {
+                System.out.println("You defeated " + enemy.getName() + "!");
+            }
+            System.out.println("\nFinal Stats:");
+            System.out.println("You (" + player.getName() + ") - HP: " + player.getHP());
+            System.out.println("Enemy (" + enemy.getName() + ") - HP: " + enemy.getHP());
+        }
         
         input.close();
     }
