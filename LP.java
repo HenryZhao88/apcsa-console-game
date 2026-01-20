@@ -41,7 +41,7 @@ public class LP extends Card {
     }
 
     /*Deal 300-400 damage to opponent, restores 80 elixir*/
-    public String attack(Adventurer other) {
+    public String attack(Card other) {
         int damage = (int)(Math.random() * 100) + 301;
         other.applyDamage(damage);
         restoreSpecial(80);
@@ -51,7 +51,7 @@ public class LP extends Card {
     /*Deal 700-800 damage to opponent, only if elixir is high enough.
       Reduces elixir by 8.
     */
-    public String specialAttack(Adventurer other) {
+    public String specialAttack(Card other) {
         if (getSpecial() >= 200) {
             setSpecial(getSpecial() - 200);
             int damage = (int)(Math.random() * 100) + 701;
@@ -63,7 +63,7 @@ public class LP extends Card {
     }
 
     /*Restores 5 special to other*/
-    public String support(Adventurer other) {
+    public String support(Card other) {
         return "Gives to " + other + " and restores " +
             other.restoreSpecial(160) + " " + other.getSpecialName();
     }
