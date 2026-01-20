@@ -13,7 +13,7 @@ public class Paladin extends Card {
     }
 
     public Paladin() {
-        this("Paladin");
+        this("Sir");
     }
 
     @Override
