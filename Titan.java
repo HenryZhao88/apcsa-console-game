@@ -41,7 +41,7 @@ public class Titan extends Card {
         int damage = 135;
         other.applyDamage(damage);
         restoreSpecial(5); // Regain protein on basic hit
-        return this.getName() + " uses Toss on " + other.getName() + " dealing " + damage + " damage!";
+        return "\u001b[31m" + this.getName() + " uses Toss on " + other.getName() + " dealing " + damage + " damage!\u001b[0m";
     }
 
     @Override
@@ -50,7 +50,7 @@ public class Titan extends Card {
             setSpecial(getSpecial() - 25);
             int damage = 253;
             other.applyDamage(damage);
-            return this.getName() + " uses Punch on " + other.getName() + " dealing " + damage + " damage!";
+            return "\u001b[31m" + this.getName() + " uses Punch on " + other.getName() + " dealing " + damage + " damage!\u001b[0m";
         } else {
             return "Not enough protein to Punch! Instead " + attack(other);
         }
@@ -65,7 +65,7 @@ public class Titan extends Card {
         }else{
             other.setHP(other.getHP() + heal);
         }
-        return this.getName() + " encourages " + other.getName() + ", healing them for " + heal + " HP!";
+        return "\u001b[32m" + this.getName() + " encourages " + other.getName() + ", healing them for " + heal + " HP!\u001b[0m";
     }
 
     @Override
@@ -78,6 +78,6 @@ public class Titan extends Card {
             setHP(getHP() + heal);
         }
         restoreSpecial(10);
-        return this.getName() + " heals self for " + heal + " HP and recovers Protein.";
+        return "\u001b[32m" + this.getName() + " heals self for " + heal + " HP and recovers Protein.\u001b[0m";
     }
 }

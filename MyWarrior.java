@@ -45,8 +45,8 @@ public class MyWarrior extends Card {
         int damage = (int)(Math.random() * 6) + 1;
         other.applyDamage(damage);
         restoreSpecial(2);
-        return this + " attacked " + other + " and dealt " + damage +
-            " points of damage. They then take a sip of their coffee.";
+        return "\u001b[31m" + this + " attacked " + other + " and dealt " + damage +
+            " points of damage. They then take a sip of their coffee.\u001b[0m";
     }
     /*Deal 3-12 damage to opponent, only if caffeine is high enough.
       Reduces caffeine by 8.
@@ -56,9 +56,9 @@ public class MyWarrior extends Card {
             setSpecial(getSpecial() - 8);
             int damage = (int)(Math.random() * 5 + Math.random() * 5) + 3;
             other.applyDamage(damage);
-            return this + " used their " + preferredLanguage +
+            return "\u001b[31m" + this + " used their " + preferredLanguage +
                 " skills to hack the matrix. " +
-                " This glitched out " + other + " dealing " + damage + " points of damage.";
+                " This glitched out " + other + " dealing " + damage + " points of damage.\u001b[0m";
         } else {
             return "Not enough caffeine to use the ultimate code. Instead " + attack(other);
         }
@@ -73,7 +73,7 @@ public class MyWarrior extends Card {
     public String support() {
         int hp = 1;
         setHP(getHP() + hp);
-        return this + " drinks a coffee to restores " + restoreSpecial(6) + " " +
-            getSpecialName() + " and " + hp + " HP";
+        return "\u001b[32m" + this + " drinks a coffee to restores " + restoreSpecial(6) + " " +
+            getSpecialName() + " and " + hp + " HP\u001b[0m";
     }
 }

@@ -41,7 +41,7 @@ public class Paladin extends Card {
         int damage = 202;
         other.applyDamage(damage);
         restoreSpecial(5);
-        return this.getName() + " uses Slash on " + other.getName() + " dealing " + damage + " damage!";
+        return "\u001b[31m" + this.getName() + " uses Slash on " + other.getName() + " dealing " + damage + " damage!\u001b[0m";
     }
 
     @Override
@@ -53,7 +53,7 @@ public class Paladin extends Card {
         } else {
             setHP(getHP() + heal);
         }
-        return this.getName() + " uses Heal, restoring " + heal + " HP!";
+        return "\u001b[32m" + this.getName() + " uses Heal, restoring " + heal + " HP!\u001b[0m";
     }
 
     @Override
@@ -65,7 +65,7 @@ public class Paladin extends Card {
         } else {
             other.setHP(other.getHP() + heal);
         }
-        return this.getName() + " blesses " + other.getName() + ", healing them for " + heal + " HP!";
+        return "\u001b[32m" + this.getName() + " blesses " + other.getName() + ", healing them for " + heal + " HP!\u001b[0m";
     }
 
     @Override

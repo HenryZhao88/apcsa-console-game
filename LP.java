@@ -45,8 +45,8 @@ public class LP extends Card {
         int damage = (int)(Math.random() * 100) + 301;
         other.applyDamage(damage);
         restoreSpecial(80);
-        return this + " attacked " + other + " and dealt " + damage +
-            " points of damage. They then regenerate their elixir.";
+        return "\u001b[31m" + this + " attacked " + other + " and dealt " + damage +
+            " points of damage. They then regenerate their elixir.\u001b[0m";
     }
     /*Deal 700-800 damage to opponent, only if elixir is high enough.
       Reduces elixir by 8.
@@ -56,7 +56,7 @@ public class LP extends Card {
             setSpecial(getSpecial() - 200);
             int damage = (int)(Math.random() * 100) + 701;
             other.applyDamage(damage);
-            return sound + " " + this + " wound for a huge attack, dealing " + damage + " points of damage to " + other;
+            return "\u001b[31m" + sound + " " + this + " wound for a huge attack, dealing " + damage + " points of damage to " + other + "\u001b[0m";
         } else {
             return "Not enough elixir. Instead " + attack(other);
         }
@@ -71,7 +71,7 @@ public class LP extends Card {
     public String support() {
         int hp = 400;
         setHP(getHP() + hp);
-        return this + " meditates to restores " + restoreSpecial(100) + " " +
-            getSpecialName() + " and " + hp + " HP";
+        return "\u001b[32m" + this + " meditates to restores " + restoreSpecial(100) + " " +
+            getSpecialName() + " and " + hp + " HP\u001b[0m";
     }
 }

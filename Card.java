@@ -1,7 +1,5 @@
 // Collaborators: Henry Zhao, Carter Kuo
 
-import java.util.Random;
-
 public abstract class Card {
     private String name;
     private int HP, maxHP;
