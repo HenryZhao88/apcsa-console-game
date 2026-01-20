@@ -40,7 +40,7 @@ public class Paladin extends Card {
     public String attack(Card other) {
         int damage = 202;
         other.applyDamage(damage);
-        restoreSpecial(5);
+        restoreSpecial(20);
         return "\u001b[31m" + this.getName() + " uses Slash on " + other.getName() + " dealing " + damage + " damage!\u001b[0m";
     }
 
@@ -70,7 +70,7 @@ public class Paladin extends Card {
 
     @Override
     public String support() {
-        restoreSpecial(15);
+        restoreSpecial(40);
         return this.getName() + " prays, recovering Faith.";
     }
 }
